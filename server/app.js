@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const userRoutes = require('./routes/user');
+const bookRoutes = require('./routes/book');
 
 const app = express();
 const port = 5000;
@@ -18,8 +19,9 @@ mongoose.connect("mongodb+srv://apple:apple@cluster0.xl6iy.mongodb.net/library-m
 //middlewares
 app.use(bodyParser.json());
 
-//requested routes
+//request routes
 app.use('/user', userRoutes);
+app.use('/books', bookRoutes);
 
 app.listen(port, () => {
     console.log("Server is started");
