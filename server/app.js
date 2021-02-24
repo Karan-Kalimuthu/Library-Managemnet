@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const userRoutes = require('./routes/user');
 const bookRoutes = require('./routes/book');
@@ -18,6 +19,8 @@ mongoose.connect("mongodb+srv://apple:apple@cluster0.xl6iy.mongodb.net/library-m
 
 //middlewares
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/images", express.static(path.join("images")));
 
 //request routes
 app.use('/user', userRoutes);

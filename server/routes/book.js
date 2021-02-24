@@ -1,15 +1,19 @@
 const express = require("express");
 
+const BookController = require('../controllers/book');
+const extractFile = require('../middleware/file');
+
+
 const router = express.Router();
 
-// router.post("", BookController.createPost);
+router.post("/", extractFile, BookController.createBook);
 
-// router.get("", BookController.getPosts);
+router.get("/", BookController.getBooks);
 
-// router.get("/:id", BookController.getPost);
+router.get("/:id", BookController.getBook);
 
-// router.put("/:id", BookController.updatePost);
+// router.put("/:id", BookController.updateBook);
 
-// router.delete("/:id", BookController.deletePost);
+router.delete("/:id", BookController.deleteBook);
 
 module.exports = router;
