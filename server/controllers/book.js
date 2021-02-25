@@ -63,22 +63,17 @@ exports.getBook = (req, res, next) => {
 
 //updating book
 exports.updateBook = (req, res, next) => {
-    const book = new Book({
-        title: req.body.title,
-        description: req.body.description,
-        imagePath: req.body.imagePath,
-        author: req.body.author,
-    });
-    console.log(book);
-    Book.updateOne({ _id: req.params.id }, book)
+    console.log("hited update");
+    const book = new Book({ _id: req.body.id, title: req.body.title, description: req.body.description, imagePath: req.body.imagePath, author: req.body.author });
+    console.log("hited update", book);
+    Book.updateOne({ _id: req.body.id }, book)
         .then(result => {
-            console.log(result);
+            console.log("hited update", result);
             res.status(200).json({ message: 'Updated Successfully!' });
         })
         .catch(error => {
             res.status(500).json({
-                message: "couldn't update Boook!",
-                error
+                message: "couldn't update book!"
             })
         })
 }
