@@ -18,8 +18,12 @@ mongoose.connect("mongodb+srv://apple:apple@cluster0.xl6iy.mongodb.net/library-m
     });
 
 //middlewares
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //convert the req body into the form of json
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+})
 
 //request routes
 app.use('/user', userRoutes);

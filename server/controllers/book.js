@@ -33,7 +33,7 @@ exports.getBooks = (req, res, next) => {
             res.status(200).json({
                 message: 'Books fetched successfully!',
                 books: fetchedBooks,
-                count
+                maxBooks: count
             });
         })
         .catch(error => {
