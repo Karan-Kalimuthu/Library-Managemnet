@@ -8,23 +8,24 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BookCreateComponent,
     BookListComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NoopAnimationsModule,
-    MatToolbarModule,
-    MatIconModule
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
